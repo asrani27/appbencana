@@ -1,0 +1,178 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
+class PemeriksaanSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $data = [
+            [
+                'korban_id' => 1,
+                'tekanan_darah' => '120/80',
+                'nadi' => '80',
+                'respirasi' => '18',
+                'suhu' => 36.5,
+                'keluhan' => 'Sakit di bagian kepala, pusing',
+                'diagnosa_awal' => 'Cedera kepala ringan',
+                'tindakan' => 'Bersihkan luka, berikan analgesik',
+                'petugas_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'korban_id' => 2,
+                'tekanan_darah' => '100/60',
+                'nadi' => '90',
+                'respirasi' => '20',
+                'suhu' => 36.8,
+                'keluhan' => 'Nyeri hebat di kaki kanan, tidak bisa berdiri',
+                'diagnosa_awal' => 'Patah tulang femur kanan',
+                'tindakan' => 'Imobilisasi dengan bidai, rujuk ke RS',
+                'petugas_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'korban_id' => 3,
+                'tekanan_darah' => '90/60',
+                'nadi' => '110',
+                'respirasi' => '22',
+                'suhu' => 35.2,
+                'keluhan' => 'Menggigil, kulit pucat dan dingin',
+                'diagnosa_awal' => 'Hypothermia sedang',
+                'tindakan' => 'Hangatkan tubuh, berikan minuman hangat',
+                'petugas_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'korban_id' => 4,
+                'tekanan_darah' => '110/70',
+                'nadi' => '85',
+                'respirasi' => '19',
+                'suhu' => 36.8,
+                'keluhan' => 'Nyeri di beberapa bagian tubuh',
+                'diagnosa_awal' => 'Multi trauma',
+                'tindakan' => 'Cek kesadaran, observasi vital',
+                'petugas_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'korban_id' => 5,
+                'tekanan_darah' => '95/65',
+                'nadi' => '100',
+                'respirasi' => '21',
+                'suhu' => 36.4,
+                'keluhan' => 'Pusing, mual, luka di kepala berdarah',
+                'diagnosa_awal' => 'Cedera kepala sedang',
+                'tindakan' => 'Cek GCS,CT scan kepala,observasi kesadaran',
+                'petugas_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'korban_id' => 6,
+                'tekanan_darah' => '100/65',
+                'nadi' => '95',
+                'respirasi' => '20',
+                'suhu' => 37.0,
+                'keluhan' => 'Nyeri di dada dan punggung',
+                'diagnosa_awal' => 'Cedera thoracal',
+                'tindakan' => 'Pemeriksaan fisik thoracal, foto rontgen',
+                'petugas_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'korban_id' => 7,
+                'tekanan_darah' => '120/80',
+                'nadi' => '78',
+                'respirasi' => '17',
+                'suhu' => 36.6,
+                'keluhan' => 'Nyeri di punggung',
+                'diagnosa_awal' => 'Cedera lunak punggung',
+                'tindakan' => 'Bersihkan luka, berikan antiseptic',
+                'petugas_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'korban_id' => 8,
+                'tekanan_darah' => '100/70',
+                'nadi' => '92',
+                'respirasi' => '24',
+                'suhu' => 36.9,
+                'keluhan' => 'Sesak napas, batuk-batuk',
+                'diagnosa_awal' => 'Aspirasi air (near drowning)',
+                'tindakan' => 'Bersihkan jalan napas, oksigenasi',
+                'petugas_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'korban_id' => 9,
+                'tekanan_darah' => '105/70',
+                'nadi' => '88',
+                'respirasi' => '19',
+                'suhu' => 36.7,
+                'keluhan' => 'Nyeri di area torso',
+                'diagnosa_awal' => 'Cedera torso',
+                'tindakan' => 'Pemeriksaan fisik abdomen, observasi',
+                'petugas_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'korban_id' => 10,
+                'tekanan_darah' => '125/82',
+                'nadi' => '76',
+                'respirasi' => '16',
+                'suhu' => 36.5,
+                'keluhan' => 'Nyeri di tangan dan kaki',
+                'diagnosa_awal' => 'Luka lecet multiple',
+                'tindakan' => 'Bersihkan luka, berikan antiseptik',
+                'petugas_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'korban_id' => 11,
+                'tekanan_darah' => '85/55',
+                'nadi' => '120',
+                'respirasi' => '26',
+                'suhu' => 36.2,
+                'keluhan' => 'Tidak sadarkan diri, sesak napas',
+                'diagnosa_awal' => 'Cyanosis, henti napas',
+                'tindakan' => 'Buka jalan napas, RJP, oksigenasi segera',
+                'petugas_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'korban_id' => 12,
+                'tekanan_darah' => '95/60',
+                'nadi' => '105',
+                'respirasi' => '22',
+                'suhu' => 36.3,
+                'keluhan' => 'Mual, pusing, lemah',
+                'diagnosa_awal' => 'Hypovolemik shock ringan',
+                'tindakan' => 'Pemasangan infus, observasi vital',
+                'petugas_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+        ];
+
+        DB::table('pemeriksaan')->insert($data);
+    }
+}
