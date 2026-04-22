@@ -142,29 +142,29 @@
                     <p class="text-sm text-blue-200 mt-1">SRMB - Sistem Informasi Rekam Medis</p>
                 </div>
 
-                <!-- Login Card with Glass Effect -->
-                <div class="bg-white/20 backdrop-blur-md rounded-2xl shadow-2xl border border-white/30 overflow-hidden">
+                <!-- Login Card with White Background -->
+                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
 
                     <!-- Card Header -->
-                    <div class="bg-gradient-to-r from-blue-900/50 to-blue-800/50 px-8 py-6 border-b border-white/10">
-                        <h3 class="text-xl font-semibold text-white">Selamat Datang</h3>
-                        <p class="text-blue-200 text-sm mt-1">Silakan masuk untuk melanjutkan</p>
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-4 border-b-2 border-black-600">
+                        <h3 class="text-xl font-semibold">Selamat Datang</h3>
+                        <p class="text-blue-800 text-sm mt-1">Silakan masuk untuk melanjutkan</p>
                     </div>
 
                     <!-- Card Body -->
-                    <div class="p-8">
+                    <div class="p-6">
 
                         <!-- Error Messages -->
                         @if ($errors->any())
-                        <div class="mb-6 p-4 bg-red-500/20 border border-red-400/30 rounded-xl backdrop-blur-sm">
+                        <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl">
                             <div class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-red-300 mt-0.5 flex-shrink-0" fill="currentColor"
+                                <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="currentColor"
                                     viewBox="0 0 20 20">
                                     <path fill-rule="evenodd"
                                         d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <div class="text-sm text-red-200">
+                                <div class="text-sm text-red-700">
                                     <p class="font-medium">Login gagal</p>
                                     <p class="mt-1">{{ $errors->first() }}</p>
                                 </div>
@@ -173,27 +173,27 @@
                         @endif
 
                         @if (session('status'))
-                        <div class="mb-6 p-4 bg-green-500/20 border border-green-400/30 rounded-xl backdrop-blur-sm">
+                        <div class="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl">
                             <div class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+                                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd"
                                         d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-sm text-green-200">{{ session('status') }}</span>
+                                <span class="text-sm text-green-700">{{ session('status') }}</span>
                             </div>
                         </div>
                         @endif
 
                         @if (session('error'))
-                        <div class="mb-6 p-4 bg-yellow-500/20 border border-yellow-400/30 rounded-xl backdrop-blur-sm">
+                        <div class="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-xl">
                             <div class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
+                                <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd"
                                         d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-sm text-yellow-200">{{ session('error') }}</span>
+                                <span class="text-sm text-yellow-700">{{ session('error') }}</span>
                             </div>
                         </div>
                         @endif
@@ -204,12 +204,12 @@
 
                             <!-- Username Field -->
                             <div>
-                                <label for="username" class="block text-sm font-semibold text-white mb-2">
+                                <label for="username" class="block text-sm font-semibold text-blue-900 mb-2">
                                     Username
                                 </label>
                                 <div class="relative">
                                     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                        <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor"
+                                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -217,21 +217,21 @@
                                     </div>
                                     <input type="text" name="username" id="username" value="{{ old('username') }}"
                                         required autofocus autocomplete="username" placeholder="Masukkan username"
-                                        class="w-full pl-12 pr-4 py-3.5 bg-white/20 border border-white/30 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 focus:bg-white/30 transition-all duration-200 @error('username') border-red-400 @enderror" />
+                                        class="w-full pl-12 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-blue-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 focus:bg-white transition-all duration-200 @error('username') border-red-400 @enderror" />
                                 </div>
                                 @error('username')
-                                <p class="mt-2 text-sm text-red-300">{{ $message }}</p>
+                                <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
                                 @enderror
                             </div>
 
                             <!-- Password Field -->
                             <div>
-                                <label for="password" class="block text-sm font-semibold text-white mb-2">
+                                <label for="password" class="block text-sm font-semibold text-blue-900 mb-2">
                                     Password
                                 </label>
                                 <div class="relative">
                                     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                        <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor"
+                                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -239,10 +239,10 @@
                                     </div>
                                     <input type="password" name="password" id="password" required
                                         autocomplete="current-password" placeholder="Masukkan password"
-                                        class="w-full pl-12 pr-12 py-3.5 bg-white/20 border border-white/30 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 focus:bg-white/30 transition-all duration-200 @error('password') border-red-400 @enderror" />
+                                        class="w-full pl-12 pr-12 py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-blue-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 focus:bg-white transition-all duration-200 @error('password') border-red-400 @enderror" />
                                     <!-- Toggle Password Visibility -->
                                     <button type="button" onclick="togglePassword()"
-                                        class="absolute inset-y-0 right-0 pr-4 flex items-center text-white/50 hover:text-white transition-colors">
+                                        class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-blue-600 transition-colors">
                                         <svg id="eye-icon" class="w-5 h-5" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -258,7 +258,7 @@
                                     </button>
                                 </div>
                                 @error('password')
-                                <p class="mt-2 text-sm text-red-300">{{ $message }}</p>
+                                <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
                                 @enderror
                             </div>
 
@@ -267,12 +267,12 @@
                                 <label class="flex items-center gap-2 cursor-pointer">
                                     <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked'
                                         : '' }}
-                                        class="w-4 h-4 text-blue-400 bg-white/20 border-white/30 rounded focus:ring-blue-400 focus:ring-2" />
-                                    <span class="text-sm text-white/80">Ingat saya</span>
+                                        class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 rounded focus:ring-blue-400 focus:ring-2" />
+                                    <span class="text-sm text-blue-700">Ingat saya</span>
                                 </label>
                                 @if (Route::has('password.request'))
                                 <a href="{{ route('password.request') }}"
-                                    class="text-sm text-blue-300 hover:text-blue-200 font-medium">
+                                    class="text-sm text-blue-600 hover:text-blue-800 font-medium">
                                     Lupa password?
                                 </a>
                                 @endif
@@ -280,7 +280,7 @@
 
                             <!-- Submit Button -->
                             <button type="submit"
-                                class="w-full py-3.5 px-4 bg-white text-blue-700 hover:bg-blue-50 font-semibold rounded-xl shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent transition-all duration-200 flex items-center justify-center gap-2">
+                                class="w-full py-3.5 px-4 bg-blue-600 text-white hover:bg-blue-700 font-semibold rounded-xl shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-all duration-200 flex items-center justify-center gap-2">
                                 <span>Masuk</span>
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -292,10 +292,10 @@
                         <!-- Register Link -->
                         @if (Route::has('register'))
                         <div class="mt-6 text-center">
-                            <p class="text-sm text-white/70">
+                            <p class="text-sm text-gray-600">
                                 Belum punya akun?
                                 <a href="{{ route('register') }}"
-                                    class="text-white hover:text-blue-200 font-semibold hover:underline">
+                                    class="text-blue-600 hover:text-blue-800 font-semibold hover:underline">
                                     Daftar sekarang
                                 </a>
                             </p>

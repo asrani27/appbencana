@@ -10,6 +10,9 @@ use App\Http\Controllers\Web\AuthController;
 */
 
 // Login Routes
+Route::get('/invoice', function () {
+    return view('invoice');
+});
 Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -51,4 +54,3 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     // API Dokumentasi Routes
     Route::get('/api-docs', [\App\Http\Controllers\Admin\ApiDocsController::class, 'index'])->name('api-docs');
 });
-
