@@ -78,6 +78,7 @@ class VictimController extends Controller
         ]);
 
         $validated['user_id'] = Auth::id();
+
         Korban::create($validated);
 
         return redirect()

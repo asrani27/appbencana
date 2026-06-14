@@ -146,7 +146,7 @@
                             {{ $triase->created_at->locale('id')->translatedFormat('d M Y') }}
                         </p>
                         <p class="text-xs text-gray-400">
-                            oleh {{ $triase->creator->username }}
+                            oleh {{ $triase->user->username }}
                         </p>
                     </td>
                     <td class="px-6 py-4">

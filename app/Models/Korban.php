@@ -24,6 +24,7 @@ class Korban extends Model
         'tanggal_ditemukan',
         'kondisi_awal',
         'foto',
+        'user_id',
     ];
 
     protected $casts = [
