@@ -18,6 +18,7 @@ class Rujukan extends Model
         'status',
         'waktu_rujuk',
         'catatan',
+        'user_id',
     ];
 
     protected $casts = [
@@ -38,5 +39,13 @@ class Rujukan extends Model
     public function rumahSakit(): BelongsTo
     {
         return $this->belongsTo(RumahSakit::class);
+    }
+
+    /**
+     * Get the user that owns the Rujukan
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

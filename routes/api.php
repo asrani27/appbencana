@@ -55,6 +55,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Rujukan Routes
     Route::get('/rujukan', [\App\Http\Controllers\Api\RujukanController::class, 'index'])->name('api.rujukan.index');
+    Route::get('/rujukan/by-user', [\App\Http\Controllers\Api\RujukanController::class, 'byUser'])->name('api.rujukan.byUser');
     Route::post('/rujukan', [\App\Http\Controllers\Api\RujukanController::class, 'store'])->name('api.rujukan.store');
     Route::get('/rujukan/{id}', [\App\Http\Controllers\Api\RujukanController::class, 'show'])->name('api.rujukan.show');
     Route::put('/rujukan/{id}', [\App\Http\Controllers\Api\RujukanController::class, 'update'])->name('api.rujukan.update');

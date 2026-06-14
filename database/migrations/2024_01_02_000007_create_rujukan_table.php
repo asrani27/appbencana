@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('status', ['dirujuk', 'diterima', 'selesai'])->default('dirujuk');
             $table->timestamp('waktu_rujuk')->nullable();
             $table->text('catatan')->nullable();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

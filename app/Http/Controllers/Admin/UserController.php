@@ -42,7 +42,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = ['admin', 'petugas', 'relawan', 'medis'];
+        $roles = ['admin', 'medis'];
         return view('admin.user.create', compact('roles'));
     }
 
@@ -81,7 +81,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $roles = ['admin', 'petugas', 'relawan', 'medis'];
+        $roles = ['admin', 'medis'];
         return view('admin.user.edit', compact('user', 'roles'));
     }
 
@@ -94,7 +94,7 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255', Rule::unique('users', 'username')->ignore($user->id)],
             'email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')->ignore($user->id)],
-            'role' => ['required', Rule::in(['admin', 'petugas', 'relawan', 'medis'])],
+            'role' => ['required', Rule::in(['admin', 'medis'])],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
         ]);
 

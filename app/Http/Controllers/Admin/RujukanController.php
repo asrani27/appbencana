@@ -7,6 +7,7 @@ use App\Models\Rujukan;
 use App\Models\Korban;
 use App\Models\RumahSakit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RujukanController extends Controller
 {
@@ -58,6 +59,7 @@ class RujukanController extends Controller
             'catatan' => ['nullable', 'string'],
         ]);
 
+        $validated['user_id'] = Auth::id();
         Rujukan::create($validated);
 
         return redirect()
@@ -78,7 +80,6 @@ class RujukanController extends Controller
      */
     public function edit(Rujukan $rujukan)
     {
-        dd($rujukan);
         $korban = Korban::all();
         $rumahSakit = RumahSakit::all();
         return view('admin.rujukan.edit', compact('rujukan', 'korban', 'rumahSakit'));

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Rujukan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RujukanController extends Controller
 {
@@ -52,11 +53,12 @@ class RujukanController extends Controller
         $validated = $request->validate([
             'korban_id' => 'required|exists:korban,id',
             'rumah_sakit_id' => 'required|exists:rumah_sakit,id',
-            'status' => 'required|in:menunggu,dalam_perjalanan,diterima,ditolak,selesai',
+            'status' => 'required|in:dirujuk,diterima,selesai',
             'waktu_rujuk' => 'required|date',
             'catatan' => 'nullable|string',
         ]);
 
+        $validated['user_id'] = Auth::id();
         $rujukan = Rujukan::create($validated);
 
         return response()->json([
@@ -64,6 +66,33 @@ class RujukanController extends Controller
             'message' => 'Data rujukan berhasil ditambahkan',
             'data' => $rujukan->load(['korban', 'rumahSakit'])
         ], 201);
+    }
+
+    /**
+     * Display rujukan by the authenticated user.
+     */
+    public function byUser(Request $request)
+    {
+        $query = Rujukan::with(['korban', 'rumahSakit'])
+            ->where('user_id', Auth::id());
+
+        // Filter by korban_id if provided
+        if ($request->has('korban_id')) {
+            $query->where('korban_id', $request->korban_id);
+        }
+
+        // Filter by status if provided
+        if ($request->has('status')) {
+            $query->where('status', $request->status);
+        }
+
+        $rujukan = $query->orderBy('waktu_rujuk', 'desc')->paginate($request->get('per_page', 15));
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Data rujukan berhasil diambil',
+            'data' => $rujukan
+        ]);
     }
 
     /**
@@ -103,7 +132,7 @@ class RujukanController extends Controller
 
         $validated = $request->validate([
             'rumah_sakit_id' => 'sometimes|required|exists:rumah_sakit,id',
-            'status' => 'sometimes|required|in:menunggu,dalam_perjalanan,diterima,ditolak,selesai',
+            'status' => 'sometimes|required|in:dirujuk,diterima,selesai',
             'waktu_rujuk' => 'sometimes|required|date',
             'catatan' => 'nullable|string',
         ]);

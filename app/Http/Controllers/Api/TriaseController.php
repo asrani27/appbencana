@@ -78,7 +78,21 @@ class TriaseController extends Controller
             'keterangan' => 'nullable|string',
         ]);
 
-        $validated['user_id'] = Auth::id();
+        $userId = Auth::id();
+        
+        // Check if triase for this korban by this user already exists
+        $existingTriase = Triase::where('korban_id', $validated['korban_id'])
+            ->where('user_id', $userId)
+            ->first();
+            
+        if ($existingTriase) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Data triase untuk korban ini oleh user ini sudah ada'
+            ], 422);
+        }
+
+        $validated['user_id'] = $userId;
 
         $triase = Triase::create($validated);
 
