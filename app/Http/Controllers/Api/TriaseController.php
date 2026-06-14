@@ -41,6 +41,33 @@ class TriaseController extends Controller
     }
 
     /**
+     * Display triase by the authenticated user.
+     */
+    public function byUser(Request $request)
+    {
+        $query = Triase::with(['korban', 'user'])
+            ->where('user_id', Auth::id());
+
+        // Filter by korban_id if provided
+        if ($request->has('korban_id')) {
+            $query->where('korban_id', $request->korban_id);
+        }
+
+        // Filter by kategori if provided
+        if ($request->has('kategori')) {
+            $query->where('kategori', $request->kategori);
+        }
+
+        $triase = $query->orderBy('created_at', 'desc')->paginate($request->get('per_page', 15));
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Data triase berhasil diambil',
+            'data' => $triase
+        ]);
+    }
+
+    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)

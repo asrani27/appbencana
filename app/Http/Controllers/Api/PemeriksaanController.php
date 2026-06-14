@@ -41,6 +41,28 @@ class PemeriksaanController extends Controller
     }
 
     /**
+     * Display pemeriksaan by the authenticated user.
+     */
+    public function byUser(Request $request)
+    {
+        $query = Pemeriksaan::with(['korban', 'user'])
+            ->where('user_id', Auth::id());
+
+        // Filter by korban_id if provided
+        if ($request->has('korban_id')) {
+            $query->where('korban_id', $request->korban_id);
+        }
+
+        $pemeriksaan = $query->orderBy('created_at', 'desc')->paginate($request->get('per_page', 15));
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Data pemeriksaan berhasil diambil',
+            'data' => $pemeriksaan
+        ]);
+    }
+
+    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
