@@ -24,19 +24,6 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('admin'),
             ]
         );
-
-        // Petugas
-        User::updateOrCreate(
-            ['username' => 'petugas'],
-            [
-                'name'     => 'Petugas Lapangan',
-                'username' => 'petugas',
-                'email'    => 'petugas@srmb.id',
-                'role'     => 'petugas',
-                'password' => Hash::make('petugas'),
-            ]
-        );
-
         // Medis
         User::updateOrCreate(
             ['username' => 'medis'],
@@ -46,6 +33,17 @@ class UserSeeder extends Seeder
                 'email'    => 'medis@srmb.id',
                 'role'     => 'medis',
                 'password' => Hash::make('medis'),
+            ]
+        );
+        // Medis
+        User::updateOrCreate(
+            ['username' => 'hastin'],
+            [
+                'name'     => 'Hastin',
+                'username' => 'hastin',
+                'email'    => 'hastin@srmb.id',
+                'role'     => 'medis',
+                'password' => Hash::make('hastin'),
             ]
         );
     }
