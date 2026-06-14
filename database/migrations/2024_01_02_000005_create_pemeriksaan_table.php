@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('keluhan')->nullable();
             $table->text('diagnosa_awal')->nullable();
             $table->text('tindakan')->nullable();
-            $table->foreignId('petugas_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

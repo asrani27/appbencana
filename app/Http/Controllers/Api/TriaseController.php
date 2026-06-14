@@ -14,7 +14,7 @@ class TriaseController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Triase::with(['korban', 'creator']);
+        $query = Triase::with(['korban', 'user']);
 
         // Filter by korban_id if provided
         if ($request->has('korban_id')) {
@@ -26,9 +26,9 @@ class TriaseController extends Controller
             $query->where('kategori', $request->kategori);
         }
 
-        // Filter by created_by (creator) if provided
-        if ($request->has('created_by')) {
-            $query->where('created_by', $request->created_by);
+        // Filter by user_id if provided
+        if ($request->has('user_id')) {
+            $query->where('user_id', $request->user_id);
         }
 
         $triase = $query->orderBy('created_at', 'desc')->paginate($request->get('per_page', 15));
@@ -51,14 +51,14 @@ class TriaseController extends Controller
             'keterangan' => 'nullable|string',
         ]);
 
-        $validated['created_by'] = Auth::id();
+        $validated['user_id'] = Auth::id();
 
         $triase = Triase::create($validated);
 
         return response()->json([
             'success' => true,
             'message' => 'Data triase berhasil ditambahkan',
-            'data' => $triase->load(['korban', 'creator'])
+            'data' => $triase->load(['korban', 'user'])
         ], 201);
     }
 
@@ -67,7 +67,7 @@ class TriaseController extends Controller
      */
     public function show(string $id)
     {
-        $triase = Triase::with(['korban', 'creator'])->find($id);
+        $triase = Triase::with(['korban', 'user'])->find($id);
 
         if (!$triase) {
             return response()->json([
@@ -107,7 +107,7 @@ class TriaseController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Data triase berhasil diperbarui',
-            'data' => $triase->load(['korban', 'creator'])
+            'data' => $triase->load(['korban', 'user'])
         ]);
     }
 

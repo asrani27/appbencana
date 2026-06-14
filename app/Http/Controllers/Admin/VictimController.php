@@ -7,6 +7,7 @@ use App\Models\Korban;
 use App\Models\Bencana;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class VictimController extends Controller
 {
@@ -76,6 +77,7 @@ class VictimController extends Controller
             'foto' => ['nullable', 'string', 'max:255'],
         ]);
 
+        $validated['user_id'] = Auth::id();
         Korban::create($validated);
 
         return redirect()

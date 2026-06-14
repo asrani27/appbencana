@@ -16,7 +16,7 @@ class Triase extends Model
         'korban_id',
         'kategori',
         'keterangan',
-        'created_by',
+        'user_id',
     ];
 
     /**
@@ -30,8 +30,8 @@ class Triase extends Model
     /**
      * Get the user that created the Triase
      */
-    public function creator(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'created_by');
+        return $this->belongsTo(User::class);
     }
 }

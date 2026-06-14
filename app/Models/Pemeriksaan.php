@@ -21,7 +21,7 @@ class Pemeriksaan extends Model
         'keluhan',
         'diagnosa_awal',
         'tindakan',
-        'petugas_id',
+        'user_id',
     ];
 
     /**
@@ -33,10 +33,10 @@ class Pemeriksaan extends Model
     }
 
     /**
-     * Get the user (petugas) that performed the Pemeriksaan
+     * Get the user that performed the Pemeriksaan
      */
-    public function petugas(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'petugas_id');
+        return $this->belongsTo(User::class);
     }
 }

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->date('tanggal_ditemukan')->nullable();
             $table->text('kondisi_awal')->nullable();
             $table->string('foto')->nullable();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

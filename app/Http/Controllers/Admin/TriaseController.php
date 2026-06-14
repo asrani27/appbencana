@@ -14,7 +14,7 @@ class TriaseController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Triase::with(['korban', 'creator']);
+        $query = Triase::with(['korban', 'user']);
 
         // Search functionality
         if ($request->has('search') && $request->search) {
@@ -70,7 +70,7 @@ class TriaseController extends Controller
             'keterangan' => ['nullable', 'string', 'max:1000'],
         ]);
 
-        $validated['created_by'] = auth()->id();
+        $validated['user_id'] = auth()->id();
 
         Triase::create($validated);
 

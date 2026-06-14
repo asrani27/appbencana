@@ -14,16 +14,16 @@ class PemeriksaanController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Pemeriksaan::with(['korban', 'petugas']);
+        $query = Pemeriksaan::with(['korban', 'user']);
 
         // Filter by korban_id if provided
         if ($request->has('korban_id')) {
             $query->where('korban_id', $request->korban_id);
         }
 
-        // Filter by petugas_id if provided
-        if ($request->has('petugas_id')) {
-            $query->where('petugas_id', $request->petugas_id);
+        // Filter by user_id if provided
+        if ($request->has('user_id')) {
+            $query->where('user_id', $request->user_id);
         }
 
         // Filter by date range
@@ -54,15 +54,16 @@ class PemeriksaanController extends Controller
             'keluhan' => 'nullable|string',
             'diagnosa_awal' => 'nullable|string',
             'tindakan' => 'nullable|string',
-            'petugas_id' => 'required|exists:users,id',
         ]);
+
+        $validated['user_id'] = Auth::id();
 
         $pemeriksaan = Pemeriksaan::create($validated);
 
         return response()->json([
             'success' => true,
             'message' => 'Data pemeriksaan berhasil ditambahkan',
-            'data' => $pemeriksaan->load(['korban', 'petugas'])
+            'data' => $pemeriksaan->load(['korban', 'user'])
         ], 201);
     }
 
@@ -71,7 +72,7 @@ class PemeriksaanController extends Controller
      */
     public function show(string $id)
     {
-        $pemeriksaan = Pemeriksaan::with(['korban', 'petugas'])->find($id);
+        $pemeriksaan = Pemeriksaan::with(['korban', 'user'])->find($id);
 
         if (!$pemeriksaan) {
             return response()->json([
@@ -109,7 +110,6 @@ class PemeriksaanController extends Controller
             'keluhan' => 'nullable|string',
             'diagnosa_awal' => 'nullable|string',
             'tindakan' => 'nullable|string',
-            'petugas_id' => 'sometimes|required|exists:users,id',
         ]);
 
         $pemeriksaan->update($validated);
@@ -117,7 +117,7 @@ class PemeriksaanController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Data pemeriksaan berhasil diperbarui',
-            'data' => $pemeriksaan->load(['korban', 'petugas'])
+            'data' => $pemeriksaan->load(['korban', 'user'])
         ]);
     }
 

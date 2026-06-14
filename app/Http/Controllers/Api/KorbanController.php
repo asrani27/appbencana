@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Korban;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KorbanController extends Controller
 {
@@ -51,10 +52,10 @@ class KorbanController extends Controller
     {
         $validated = $request->validate([
             'bencana_id' => 'required|exists:bencana,id',
-            'nama' => 'required|string|max:255',
-            'jenis_kelamin' => 'required|in:laki-laki,perempuan',
-            'umur' => 'required|integer|min:0|max:150',
-            'status_identitas' => 'required|in:teridentifikasi,belum_teridentifikasi',
+            'nama' => 'nullable|string|max:255',
+            'jenis_kelamin' => 'required|in:L,P',
+            'umur' => 'nullable|integer|min:0|max:150',
+            'status_identitas' => 'required|in:dikenal,tidak_dikenal',
             'lokasi_ditemukan' => 'required|string|max:255',
             'tanggal_ditemukan' => 'required|date',
             'kondisi_awal' => 'nullable|string',
@@ -65,6 +66,7 @@ class KorbanController extends Controller
             $validated['foto'] = $request->file('foto')->store('foto-korban', 'public');
         }
 
+        $validated['user_id'] = Auth::id();
         $korban = Korban::create($validated);
 
         return response()->json([
@@ -111,10 +113,10 @@ class KorbanController extends Controller
 
         $validated = $request->validate([
             'bencana_id' => 'sometimes|required|exists:bencana,id',
-            'nama' => 'sometimes|required|string|max:255',
-            'jenis_kelamin' => 'sometimes|required|in:laki-laki,perempuan',
-            'umur' => 'sometimes|required|integer|min:0|max:150',
-            'status_identitas' => 'sometimes|required|in:teridentifikasi,belum_teridentifikasi',
+            'nama' => 'nullable|string|max:255',
+            'jenis_kelamin' => 'sometimes|required|in:L,P',
+            'umur' => 'nullable|integer|min:0|max:150',
+            'status_identitas' => 'sometimes|required|in:dikenal,tidak_dikenal',
             'lokasi_ditemukan' => 'sometimes|required|string|max:255',
             'tanggal_ditemukan' => 'sometimes|required|date',
             'kondisi_awal' => 'nullable|string',

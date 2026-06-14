@@ -17,6 +17,7 @@ class AuthController extends Controller
      */
     public function login(Request $request): JsonResponse
     {
+
         $request->validate([
             'username' => ['required', 'string'],
             'password' => ['required', 'string'],
@@ -37,6 +38,7 @@ class AuthController extends Controller
         // Buat token baru dengan Sanctum
         $token = $user->createToken('api-token')->plainTextToken;
 
+        //return response()->json($request->all());
         return response()->json([
             'success' => true,
             'message' => 'Login berhasil.',

@@ -15,7 +15,7 @@ class PemeriksaanController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Pemeriksaan::with(['korban', 'petugas']);
+        $query = Pemeriksaan::with(['korban', 'user']);
 
         // Search functionality
         if ($request->has('search') && $request->search) {
@@ -54,10 +54,9 @@ class PemeriksaanController extends Controller
             'keluhan' => ['nullable', 'string'],
             'diagnosa_awal' => ['nullable', 'string'],
             'tindakan' => ['nullable', 'string'],
-            'petugas_id' => ['required', 'exists:users,id'],
         ]);
 
-        $validated['petugas_id'] = auth()->id();
+        $validated['user_id'] = auth()->id();
 
         Pemeriksaan::create($validated);
 
@@ -80,8 +79,7 @@ class PemeriksaanController extends Controller
     public function edit(Pemeriksaan $pemeriksaan)
     {
         $korban = Korban::all();
-        $petugas = User::where('role', 'medis')->orWhere('role', 'petugas')->get();
-        return view('admin.pemeriksaan.edit', compact('pemeriksaan', 'korban', 'petugas'));
+        return view('admin.pemeriksaan.edit', compact('pemeriksaan', 'korban'));
     }
 
     /**
