@@ -46,6 +46,38 @@ class KorbanController extends Controller
     }
 
     /**
+     * Display korban by the authenticated user.
+     */
+    public function byUser(Request $request)
+    {
+        $query = Korban::with(['bencana', 'lokasi'])
+            ->where('user_id', Auth::id());
+
+        // Filter by bencana_id if provided
+        if ($request->has('bencana_id')) {
+            $query->where('bencana_id', $request->bencana_id);
+        }
+
+        // Filter by status_identitas if provided
+        if ($request->has('status_identitas')) {
+            $query->where('status_identitas', $request->status_identitas);
+        }
+
+        // Filter by jenis_kelamin if provided
+        if ($request->has('jenis_kelamin')) {
+            $query->where('jenis_kelamin', $request->jenis_kelamin);
+        }
+
+        $korban = $query->orderBy('tanggal_ditemukan', 'desc')->paginate($request->get('per_page', 15));
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Data korban berhasil diambil',
+            'data' => $korban
+        ]);
+    }
+
+    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)

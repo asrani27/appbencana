@@ -31,6 +31,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Korban Routes
     Route::get('/korban', [\App\Http\Controllers\Api\KorbanController::class, 'index'])->name('api.korban.index');
+    Route::get('/korban/by-user', [\App\Http\Controllers\Api\KorbanController::class, 'byUser'])->name('api.korban.byUser');
     Route::post('/korban', [\App\Http\Controllers\Api\KorbanController::class, 'store'])->name('api.korban.store');
     Route::get('/korban/{id}', [\App\Http\Controllers\Api\KorbanController::class, 'show'])->name('api.korban.show');
     Route::put('/korban/{id}', [\App\Http\Controllers\Api\KorbanController::class, 'update'])->name('api.korban.update');
@@ -38,6 +39,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Triase Routes
     Route::get('/triase', [\App\Http\Controllers\Api\TriaseController::class, 'index'])->name('api.triase.index');
+    Route::get('/triase/by-user', [\App\Http\Controllers\Api\TriaseController::class, 'byUser'])->name('api.triase.byUser');
     Route::post('/triase', [\App\Http\Controllers\Api\TriaseController::class, 'store'])->name('api.triase.store');
     Route::get('/triase/{id}', [\App\Http\Controllers\Api\TriaseController::class, 'show'])->name('api.triase.show');
     Route::put('/triase/{id}', [\App\Http\Controllers\Api\TriaseController::class, 'update'])->name('api.triase.update');
@@ -45,6 +47,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Pemeriksaan Routes
     Route::get('/pemeriksaan', [\App\Http\Controllers\Api\PemeriksaanController::class, 'index'])->name('api.pemeriksaan.index');
+    Route::get('/pemeriksaan/by-user', [\App\Http\Controllers\Api\PemeriksaanController::class, 'byUser'])->name('api.pemeriksaan.byUser');
     Route::post('/pemeriksaan', [\App\Http\Controllers\Api\PemeriksaanController::class, 'store'])->name('api.pemeriksaan.store');
     Route::get('/pemeriksaan/{id}', [\App\Http\Controllers\Api\PemeriksaanController::class, 'show'])->name('api.pemeriksaan.show');
     Route::put('/pemeriksaan/{id}', [\App\Http\Controllers\Api\PemeriksaanController::class, 'update'])->name('api.pemeriksaan.update');
