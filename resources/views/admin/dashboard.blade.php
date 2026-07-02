@@ -13,7 +13,8 @@
         <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
         <div class="relative z-10">
             <h3 class="text-2xl lg:text-3xl font-bold mb-2">Selamat Datang, Administrator! 👋</h3>
-            <p class="text-blue-100 text-sm lg:text-base">Sistem Rekam Medis Bencana - Pantau dan kelola data korban
+            <p class="text-blue-100 text-sm lg:text-base">Sistem Rekam Medis Elektronik Bencana - Pantau dan kelola data
+                korban
                 bencana dengan mudah.</p>
         </div>
     </div>
