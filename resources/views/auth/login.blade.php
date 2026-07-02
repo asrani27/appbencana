@@ -8,7 +8,7 @@
     <title>Login - Sistem Rekam Medis Bencana</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('logo/logo.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('logo/logo_baru.jpeg') }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -58,19 +58,20 @@
                 <div class="mb-8">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-24 h-24 bg-white rounded-2xl shadow-lg flex items-center justify-center p-2">
-                            <img src="{{ asset('logo/logo.ico') }}" alt="Logo" class="w-full h-full object-contain">
+                            <img src="{{ asset('logo/logo_baru.jpeg') }}" alt="Logo"
+                                class="w-full h-full object-contain">
                         </div>
                         <div>
-                            <h1 class="text-5xl font-bold text-white">SRMB</h1>
-                            <p class="text-sm text-blue-200">Sistem Rekam Medis Bencana</p>
+                            <h1 class="text-5xl font-bold text-white">RME</h1>
+                            <p class="text-sm text-blue-200">Rekam Medis Elektronik Bencana</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Main Text -->
                 <h2 class="text-4xl xl:text-5xl font-bold leading-tight mb-6 text-white">
-                    Sistem Rekam Medis<br />
-                    <span class="text-blue-200">Bencana</span>
+                    Sistem Rekam Medis Elektronik Bencana<br />
+
                 </h2>
 
                 <p class="text-lg text-blue-200 mb-8 max-w-md">
@@ -135,7 +136,8 @@
                 <div class="lg:hidden text-center mb-8">
                     <div class="inline-flex items-center gap-3 mb-4">
                         <div class="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center p-2">
-                            <img src="{{ asset('logo/logo.ico') }}" alt="Logo" class="w-full h-full object-contain">
+                            <img src="{{ asset('logo/logo_baru.jpeg') }}" alt="Logo"
+                                class="w-full h-full object-contain">
                         </div>
                     </div>
                     <h1 class="text-xl font-bold text-white">Sistem Rekam Medis Bencana</h1>
@@ -307,7 +309,7 @@
                 <!-- Footer -->
                 <div class="mt-8 text-center">
                     <p class="text-sm text-white/60">
-                        &copy; {{ date('Y') }} Sistem Rekam Medis Bencana
+                        &copy; {{ date('Y') }} Sistem Rekam Medis Elektronik Bencana
                     </p>
                 </div>
             </div>

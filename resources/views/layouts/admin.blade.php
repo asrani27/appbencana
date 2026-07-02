@@ -8,7 +8,7 @@
     <title>@yield('title', 'Admin Dashboard') - SRMB</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('logo/logo.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('logo/logo_baru.jpeg') }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -29,7 +29,7 @@
         <div class="flex items-center justify-between px-4 py-3">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center p-1">
-                    <img src="{{ asset('logo/logo.ico') }}" alt="Logo" class="w-full h-full object-contain">
+                    <img src="{{ asset('logo/logo_baru.jpeg') }}" alt="Logo" class="w-full h-full object-contain">
                 </div>
                 <div>
                     <h1 class="font-bold text-gray-800 text-sm">SRMB</h1>
@@ -63,11 +63,11 @@
         <div class="relative z-10 px-6 py-6">
             <div class="flex items-center gap-3">
                 <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center p-2 shadow-lg">
-                    <img src="{{ asset('logo/logo.ico') }}" alt="Logo" class="w-full h-full object-contain">
+                    <img src="{{ asset('logo/logo_baru.jpeg') }}" alt="Logo" class="w-full h-full object-contain">
                 </div>
                 <div class="text-white">
-                    <h1 class="font-bold text-xl">SRMB</h1>
-                    <p class="text-blue-200 text-xs">Sistem Rekam Medis Bencana</p>
+                    <h1 class="font-bold text-xl">RME</h1>
+                    <p class="text-blue-200 text-xs">Rekam Medis Elektronik Bencana</p>
                 </div>
             </div>
         </div>
@@ -75,15 +75,15 @@
         <!-- Navigation: dynamically loaded based on user role -->
         @php $role = auth()->user()->role ?? 'admin'; @endphp
         @if ($role === 'admin')
-            @include('layouts.menu_admin')
+        @include('layouts.menu_admin')
         @elseif ($role === 'petugas')
-            @include('layouts.menu_petugas')
+        @include('layouts.menu_petugas')
         @elseif ($role === 'relawan')
-            @include('layouts.menu_relawan')
+        @include('layouts.menu_relawan')
         @elseif ($role === 'medis')
-            @include('layouts.menu_medis')
+        @include('layouts.menu_medis')
         @else
-            @include('layouts.menu_admin')
+        @include('layouts.menu_admin')
         @endif
 
         <!-- User Profile Section -->
