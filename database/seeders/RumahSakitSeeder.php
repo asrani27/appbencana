@@ -13,6 +13,8 @@ class RumahSakitSeeder extends Seeder
      */
     public function run(): void
     {
+        DB::table('rumah_sakit')->truncate();
+
         $now = Carbon::now();
 
         $data = [
