@@ -9,9 +9,18 @@ use App\Http\Controllers\Web\AuthController;
 |--------------------------------------------------------------------------
 */
 
-// Login Routes
+// Static & Public Pages
 Route::get('/invoice', function () {
     return view('invoice');
+});
+Route::get('/contact-us', function () {
+    return view('contact-us');
+})->name('contact-us');
+Route::get('/contact', function () {
+    return view('contact-us');
+})->name('contact');
+Route::get('/contact_us', function () {
+    return view('contact-us');
 });
 Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');

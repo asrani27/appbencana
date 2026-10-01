@@ -307,9 +307,12 @@
                 </div>
 
                 <!-- Footer -->
-                <div class="mt-8 text-center">
+                <div class="mt-8 text-center space-y-1">
                     <p class="text-sm text-white/60">
                         &copy; {{ date('Y') }} Sistem Rekam Medis Elektronik Bencana
+                    </p>
+                    <p class="text-xs text-white/50">
+                        Butuh bantuan? <a href="{{ route('contact-us') }}" class="text-white hover:underline font-medium">Contact Us</a>
                     </p>
                 </div>
             </div>
