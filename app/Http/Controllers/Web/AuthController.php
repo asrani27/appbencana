@@ -22,18 +22,18 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
+            'username' => ['required', 'string'],
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']], $request->boolean('remember'))) {
+        if (Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']], $request->boolean('remember'))) {
             $request->session()->regenerate();
             return redirect()->intended(route('admin.dashboard'));
         }
 
         return back()
-            ->withInput($request->only('email', 'remember'))
-            ->withErrors(['email' => 'Email atau password salah.']);
+            ->withInput($request->only('username', 'remember'))
+            ->withErrors(['username' => 'Username atau password salah.']);
     }
 
     /**

@@ -15,7 +15,7 @@ class ApiDocsController extends Controller
                 'endpoint' => '/api/login',
                 'description' => 'Login untuk mendapatkan token API (Laravel Sanctum)',
                 'parameters' => [
-                    ['name' => 'email', 'type' => 'string', 'required' => true, 'description' => 'Email pengguna'],
+                    ['name' => 'username', 'type' => 'string', 'required' => true, 'description' => 'Username pengguna'],
                     ['name' => 'password', 'type' => 'string', 'required' => true, 'description' => 'Password pengguna'],
                 ],
             ],
