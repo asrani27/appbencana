@@ -60,6 +60,7 @@ class UserSeeder extends Seeder
             'yulitaniaizz567@gmail.com',
             'Kescasey66@gmail.com',
             'hastinatasasih87@gmail.com',
+            'hastin.bkd@gmail.com',
         ];
 
         foreach ($medisEmails as $email) {
