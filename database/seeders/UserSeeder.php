@@ -46,5 +46,36 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('hastin'),
             ]
         );
+
+        // Daftar email user dengan role medis
+        $medisEmails = [
+            'aidatunnazli28@gmail.com',
+            'nadiraaaamelia@gmail.com',
+            'nadzwaangeliaputri@gmail.com',
+            'adahhytii@gmail.com',
+            'rahardinadc@gmail.com',
+            'rinamujiatiastuti@gmail.com',
+            'sitikomariahpps112@gmail.com',
+            'trianaagustin739@gmail.com',
+            'yulitaniaizz567@gmail.com',
+            'Kescasey66@gmail.com',
+            'hastinatasasih87@gmail.com',
+        ];
+
+        foreach ($medisEmails as $email) {
+            $username = explode('@gmail.com', $email)[0];
+
+            User::updateOrCreate(
+                ['username' => $username],
+                [
+                    'name'     => $username,
+                    'username' => $username,
+                    'email'    => $email,
+                    'role'     => 'medis',
+                    'password' => Hash::make($username),
+                ]
+            );
+        }
     }
 }
+
