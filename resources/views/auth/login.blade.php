@@ -204,24 +204,24 @@
                         <form method="POST" action="{{ route('login.post') }}" class="space-y-6">
                             @csrf
 
-                            <!-- Username Field -->
+                            <!-- Email Field -->
                             <div>
-                                <label for="username" class="block text-sm font-semibold text-blue-900 mb-2">
-                                    Username
+                                <label for="email" class="block text-sm font-semibold text-blue-900 mb-2">
+                                    Email
                                 </label>
                                 <div class="relative">
                                     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                                         <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                                d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                                         </svg>
                                     </div>
-                                    <input type="text" name="username" id="username" value="{{ old('username') }}"
-                                        required autofocus autocomplete="username" placeholder="Masukkan username"
-                                        class="w-full pl-12 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-blue-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 focus:bg-white transition-all duration-200 @error('username') border-red-400 @enderror" />
+                                    <input type="email" name="email" id="email" value="{{ old('email') }}"
+                                        required autofocus autocomplete="email" placeholder="Masukkan email"
+                                        class="w-full pl-12 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-blue-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 focus:bg-white transition-all duration-200 @error('email') border-red-400 @enderror" />
                                 </div>
-                                @error('username')
+                                @error('email')
                                 <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
                                 @enderror
                             </div>
